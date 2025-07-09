@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vega Nova – المتجر</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+    header {
+      background-color: #000;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+    nav a {
+      color: #ccc;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .shop-container {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+    .product {
+      background-color: #2a2a2a;
+      border-radius: 20px;
+      padding: 20px;
+      width: 280px;
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+    .product h3 {
+      margin: 10px 0 5px;
+    }
+    .product select,
+    .product button {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .product select {
+      background-color: #fff;
+      color: #000;
+    }
+    .product button {
+      background-color: #fff;
+      color: #000;
+    }
+    .product button:hover {
+      background-color: #ccc;
+    }
+    footer {
+      margin-top: 60px;
+      border-top: 1px solid #444;
+      padding: 20px 10px;
+      text-align: center;
+      font-size: 0.9rem;
+      background-color: #000;
+    }
+    footer a {
+      color: #aaa;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Vega Nova</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html">🛒</a>
+    </nav>
+  </header>
+
+  <main class="shop-container">
+    <h2 style="text-align:center; font-size:2rem;">مجموعة VegaNova العصرية</h2>
+    <div class="products">
+      <div class="product">
+        <a href="aura-flux.html">
+          <img src="photo/tshirt1.png" alt="Aura Flux">
+        </a>
+        <h3>Aura Flux</h3>
+ <p   style="font-family: Tajawal, sans-serif;">120 <img src="photo/Saudi_Riyal_Symbol.svg" alt="﷼" style="width: 1.1em; vertical-align: middle; margin-left: 4px;"></p>
+        <label>المقاس:</label>
+        <select class="size">
+          <option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+        </select><br>
+        <button onclick="addToCart('Aura Flux', this)">أضف للسلة</button>
+      </div>
+
+      <div class="product">
+        <a href="one-and-only.html">
+          <img src="photo/tshirt2.png" alt="One and Only">
+        </a>
+        <h3>One and Only</h3>
+        <p style="font-family: Tajawal, sans-serif;">120 <img src="photo/Saudi_Riyal_Symbol.svg" alt="﷼" style="width: 1.1em; vertical-align: middle; margin-left: 4px;"></p>
+        <label>المقاس:</label>
+        <select class="size">
+          <option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+        </select><br>
+        <button onclick="addToCart('One and Only', this)">أضف للسلة</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Vega Nova. All rights reserved.<br>
+    <a href="mailto:titaniati889@gmail.com">📧 titaniati889@gmail.com</a> |
+    <a href="https://www.instagram.com/veganova.style" target="_blank">📸 @veganova.style</a>
+  </footer>
+
+  <script>
+    function addToCart(product, btn) {
+      const size = btn.parentElement.querySelector('.size').value;
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      cart.push({ product, size });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert('تمت الإضافة إلى السلة!');
+    }
+  </script>
+
+</body>
+</html>

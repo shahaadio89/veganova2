@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>سلة المشتريات – Vega Nova</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+    header {
+      background-color: #000;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+    nav a {
+      color: #ccc;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .cart-container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 20px;
+      background-color: #222;
+      border-radius: 15px;
+    }
+    .cart-container h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+    .cart-item {
+      background-color: #2a2a2a;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+    .cart-item button {
+      margin-top: 10px;
+      background: #ff4d4d;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
+    .checkout-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #fff;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 20px;
+    }
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+      margin-top: 40px;
+    }
+    footer a {
+      color: #aaa;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Vega Nova</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="cart-container">
+    <h2>سلة المشتريات</h2>
+    <div id="cart-items"></div>
+    <button class="checkout-btn" onclick="checkout()">إتمام الطلب</button>
+  </div>
+
+  <footer>
+    &copy; 2025 Vega Nova. All rights reserved.<br>
+    <a href="mailto:titaniati889@gmail.com">📧 titaniati889@gmail.com</a> |
+    <a href="https://www.instagram.com/veganova.style" target="_blank">📸 @veganova.style</a>
+  </footer>
+
+  <script>
+    function displayCart() {
+      const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+      const container = document.getElementById('cart-items');
+      container.innerHTML = '';
+      cartItems.forEach((item, index) => {
+        container.innerHTML += `
+          <div class="cart-item">
+            ${item.product} - مقاس ${item.size}<br>
+            <span style="font-family: Tajawal, sans-serif;">
+              120 <img src="photo/Saudi_Riyal_Symbol.svg" alt="﷼" style="width: 1.1em; vertical-align: middle; margin-left: 4px;">
+            </span><br>
+            <button onclick="removeFromCart(${index})">حذف</button>
+          </div>
+        `;
+      });
+    }
+
+    function removeFromCart(index) {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      displayCart();
+    }
+
+    function checkout() {
+  window.location.href = "checkout.html";
+}
+
+    window.onload = displayCart;
+  </script>
+
+</body>
+</html>

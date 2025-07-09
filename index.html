@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vega Nova</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #111;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: rgba(0,0,0,0.8);
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+    }
+    nav a {
+      color: #ccc;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      height: 100vh;
+      background: url('photo/logo.png') no-repeat center center/contain;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 80px;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      color: white;
+      text-shadow: 0 0 20px #aaa;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-top: 10px;
+    }
+    .cta-button {
+      background-color: #fff;
+      color: #000;
+      padding: 14px 35px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+    .cta-button:hover {
+      background-color: #ccc;
+    }
+    .section {
+      padding: 100px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .section p {
+      font-size: 1.1rem;
+      color: #ccc;
+      max-width: 800px;
+      margin: auto;
+    }
+    .products {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 40px;
+    }
+    .product {
+      background-color: #222;
+      border-radius: 20px;
+      padding: 20px;
+      width: 260px;
+      transition: transform 0.3s ease;
+    }
+    .product:hover {
+      transform: translateY(-10px);
+    }
+    .product img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 10px;
+    }
+    .product h3 {
+      margin: 10px 0 5px;
+    }
+    .product p {
+      color: #aaa;
+    }
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 30px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Vega Nova</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html" title="سلة المشتريات" style="font-size: 1.3rem;">🛒</a>
+
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Spread Kindness</h1>
+    <p>Futuristic streetwear with a chrome soul</p>
+    <button class="cta-button" onclick="location.href='shop.html'">تسوق الآن</button>
+  </section>
+
+  <section class="section">
+<h2>العصرية VegaNova مجموعة</h2>
+                      <p>   نقدم تصاميم حديثة و عصرية  VegaNova في
+                      </p>
+                    </section>
+
+  <section class="section">
+    <h2>منتجات مميزة</h2>
+    <div class="products">
+      <div class="product">
+        <a href="aura-flux.html"><img src="photo/tshirt1.png" alt="Aura Flux"></a>
+        <h3>تيشيرت "وجهي"</h3>
+        <p>120ريال </p>
+      </div>
+      <div class="product">
+        <a href="one-and-only.html"><img src="photo/tshirt2.png" alt="One and Only"></a>
+        <h3>تيشيرت "One and Only"</h3>
+        <p>120ريال </p>
+
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Vega Nova — Designed to Spread Kindness
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+    window.addEventListener('scroll', () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) section.classList.add('show');
+      });
+    });
+  </script>
+
+</body>
+</html>

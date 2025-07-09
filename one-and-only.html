@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>One and Only – Vega Nova</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    header {
+      background-color: #000;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    nav a {
+      color: #ccc;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 15px;
+      display: block;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin: 20px 0 10px;
+    }
+    p {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+    .sizes {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .sizes span {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 10px 15px;
+      background-color: #333;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+    .comments {
+      background-color: #222;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+    .comments h3 {
+      margin-bottom: 10px;
+    }
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      border-radius: 10px;
+      background-color: #fff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+      margin-top: 40px;
+    }
+    footer a {
+      color: #aaa;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Vega Nova</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html" title="سلة المشتريات" style="font-size: 1.3rem;">🛒</a>
+
+    </nav>
+  </header>
+
+  <div class="container">
+    <img src="photo/tshirt2.png" alt="One and Only T-Shirt">
+    <h2>One and Only</h2>
+    <p>تصميم يعكس التفرد والتميّز، يجسد قوتك وهويتك بطابع عصري لا يشبه أحد.</p>
+    <div class="sizes">
+      <h3>المقاسات المتوفرة:</h3>
+      <span>S</span><span>M</span><span>L</span><span>XL</span><span>XXL</span>
+    </div>
+
+    <div class="comments">
+      <h3>آراؤكم:</h3>
+      <textarea placeholder="اكتب تعليقك هنا..."></textarea>
+      <button>إرسال</button>
+    </div>
+  
+    <div class="sizes" style="text-align:center;">
+      <h3>اختر المقاس:</h3>
+      <select id="oneSize" style="padding:10px; border-radius:10px;">
+        <option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+      </select><br><br>
+      <button onclick="addToCart()" style="margin-top:10px;">أضف للسلة</button>
+    </div>
+
+    <script>
+      function addToCart() {
+        const size = document.getElementById('oneSize').value;
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        cart.push({ product: "One and Only", size });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert("تمت الإضافة إلى السلة!");
+      }
+    </script>
+    
+  <footer>
+    &copy; 2025 Vega Nova. All rights reserved.<br>
+    <a href="mailto:titaniati889@gmail.com">📧 titaniati889@gmail.com</a> |
+    <a href="https://www.instagram.com/veganova.style" target="_blank">📸 @veganova.style</a>
+  </footer>
+
+</body>
+</html>
